@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/lunbotu.css">
+</head>
+<body>
+<div class="outer">
+    <ul class="img">
+        {% for lunbo in lunbo_list %}
+            <li><a href="{{ lunbo.url }}"><img src="{{ lunbo.img }}" style="width: 100%;height: 80%"></a></li>
+        {% endfor %}
+    </ul>
+    <ul class="number">
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div class="left_btn btn"><</div>
+    <div class="right_btn btn">></div>
+</div>
+
+<script src="../static/js/jquery-3.3.1.js"></script>
+<script src="../static/js/lunbo.js"></script>
+
+</body>
+</html>
