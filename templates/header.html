@@ -1,21 +1,15 @@
 {% load staticfiles %}
 <div class="navbar navbar-inverse navbar-static-top">
-<div class="container">
-	<div class="navbar-header">
-{#		<div class="navbar-brand"><a href="#">#}
-{#			<img src="{% static 'images/logo1.png' %}" class="ima" alt="Logo"></a>#}
-{#		</div>#}
-	</div>
-    <ul class="nav navbar-nav">
-		<li class="active"><a href="/">首页</a></li>
-		<li><a href="/articles/">Web开发</a></li>
-	<li><a href="#">运维</a></li>
-	<li><a href="#">测试</a></li>
-	<li><a href="#">算法</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-	<li><a href="/news_add/">发布文章</a></li>
-	<li><a href="login.html">管理员</a></li>
-    </ul>
-</div>
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">首页</a></li>
+            {% for key,value in cto_dic.items %}
+                <li><a href="/articles_list/marker_id={{ value }}">{{ key }}</a></li>
+            {% endfor %}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/news_add/">发布文章</a></li>
+            <li><a href="/login/">管理员</a></li>
+        </ul>
+    </div>
 </div>

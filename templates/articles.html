@@ -14,16 +14,16 @@
                     </div>
                 {% endfor %}
             {% endif %}
-            <div class="col-lg-2">
-                <div class="list-group side-bar">
-                    <a href="/zonghe/" class="list-group-item active" id="zonghe">综合</a>
-                    {% for category in categories %}
-                        <a href="/news_category/category_id={{ category.category_id }}"
-                           class="list-group-item">{{ category.name }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="col-lg-7">
+            {#            <div class="col-lg-2">#}
+            {#                <div class="list-group side-bar">#}
+            {#                    <a href="/zonghe/" class="list-group-item active" id="zonghe">综合</a>#}
+            {#                    {% for category in categories %}#}
+            {#                        <a href="/news_category/category_id={{ category.category_id }}"#}
+            {#                           class="list-group-item">{{ category.name }}</a>#}
+            {#                    {% endfor %}#}
+            {#                </div>#}
+            {#            </div>#}
+            <div class="col-lg-8">
                 {% include '轮播图.html' %}
                 <div class="news-list">
                     {#      循环遍历每一条文章记录      #}
@@ -36,19 +36,10 @@
                                 <!--这里需要注意，这里的news_id是从index函数的news_list查询结果中遍历出来的 。-->
                                 <a href="{{ article.url }}" class="title">{{ article.title }}</a>
                                 <div class="info">
-                                    <span><span class="avatar"><img
-                                            src="{% static 'images/person2.jpg' %}"></span></span>.
                                     <span>14k评论</span>.
                                     <span>{{ article.pub_time | date:"Y-m-d H:i:s" }}</span>
                                 </div>
                                 <br><br><br><br>
-                                <div class="info">
-                                    <span class=""><a href='/news_edit/news_id={{ new.news_id }}'
-                                                      class="glyphicon glyphicon-edit"></a></span>
-                                    &nbsp;&nbsp;&nbsp;
-                                    <span class=""><a href="/news_delete/news_id={{ new.news_id }}"
-                                                      class="glyphicon glyphicon-trash"></a></span>
-                                </div>
                             </div>
 
                         </div><!--news-list-item-->
@@ -76,18 +67,19 @@
                                 </li>
                             {% endif %}
                             {% for page_number in paginator.page_range %}
-                                {# 获取当前页的页码 #}
+{#                                获取当前页的页码#}
                                 {% if page_number == number.number %}
-                                    {# 如果是当前页的话，选中 #}
+{#                                    如果是当前页的话，选中#}
                                     <li class="active ext">
                                         <a href="?index={{ page_number }}">{{ page_number }}</a>
                                     </li>
-                                {% else %}
-                                    <li>
-                                        <a href="?index={{ page_number }}">{{ page_number }}</a>
-                                    </li>
+{#                                {% else %}#}
+{#                                    <li>#}
+{#                                        <a href="?index={{ page_number }}">{{ page_number }}</a>#}
+{#                                    </li>#}
                                 {% endif %}
                             {% endfor %}
+
 
                             {% if number.has_next %}
                                 <li>
@@ -111,15 +103,17 @@
             </div>
 
             <!--搜索框-->
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-lg-offset-1">
                 <form action="/news_search" class="navbar-form navbar-right" method="get">
                     <div class="input-group">
                         <input type="text" class="form-control" name="search" placeholder="搜索资讯">
                         <span class="input-group-btn">
-                            <button class="btn btn-default">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
+{#                            <button class="btn btn-default">#}
+{#                                <span>Go!</span>#}
+{#                            </button>#}
+                            Go!
                         </span>
+
                     </div>
                 </form>
 
@@ -136,6 +130,9 @@
                     <div class="card-title" align="center">24小时热文</div>
                     <div class="card-body">
                         <div class="list">
+                            <div class="item">
+                                <a href="{{ rw.url }}" style="color: #444444;">{{ rw.title }}</a>
+                            </div>
                             {% for rewen in rewen_list %}
                                 <div class="item">
                                     <a href="{{ rewen.url }}" style="color: #444444;">{{ rewen.title }}</a>

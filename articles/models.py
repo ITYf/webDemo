@@ -12,7 +12,69 @@ class id_15(models.Model):
     url = models.URLField(verbose_name='详情链接')
 
     class Meta():
-        verbose_name = '博文详情'
+        verbose_name = '云计算'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.title
+
+class id_583(models.Model):
+    id = models.AutoField(primary_key=True, verbose_name='文章ID')
+    title = models.CharField(max_length=60, null=False, verbose_name='文章标题')
+    keywords = models.CharField(max_length=30, null=False, verbose_name='文章关键词')
+    pub_time = models.DateTimeField(verbose_name='发布时间')
+    img_url = models.URLField(verbose_name='封面URL')
+    url = models.URLField(verbose_name='详情链接')
+
+    class Meta():
+        verbose_name = '移动端'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.title
+
+class id_519(models.Model):
+    id = models.AutoField(primary_key=True, verbose_name='文章ID')
+    title = models.CharField(max_length=60, null=False, verbose_name='文章标题')
+    keywords = models.CharField(max_length=30, null=False, verbose_name='文章关键词')
+    pub_time = models.DateTimeField(verbose_name='发布时间')
+    img_url = models.URLField(verbose_name='封面URL')
+    url = models.URLField(verbose_name='详情链接')
+
+    class Meta():
+        verbose_name = '系统'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.title
+
+
+class id_481(models.Model):
+    id = models.AutoField(primary_key=True, verbose_name='文章ID')
+    title = models.CharField(max_length=60, null=False, verbose_name='文章标题')
+    keywords = models.CharField(max_length=30, null=False, verbose_name='文章关键词')
+    pub_time = models.DateTimeField(verbose_name='发布时间')
+    img_url = models.URLField(verbose_name='封面URL')
+    url = models.URLField(verbose_name='详情链接')
+
+    class Meta():
+        verbose_name = '网络'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.title
+
+
+class id_1708(models.Model):
+    id = models.AutoField(primary_key=True, verbose_name='文章ID')
+    title = models.CharField(max_length=60, null=False, verbose_name='文章标题')
+    keywords = models.CharField(max_length=30, null=False, verbose_name='文章关键词')
+    pub_time = models.DateTimeField(verbose_name='发布时间')
+    img_url = models.URLField(verbose_name='封面URL')
+    url = models.URLField(verbose_name='详情链接')
+
+    class Meta():
+        verbose_name = '数据科学'
         verbose_name_plural = verbose_name
 
     def __str__(self):

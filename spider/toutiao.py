@@ -51,9 +51,7 @@ def get_info():
                 rewen['comment'] = int(comment_num[:-4])
         except:
             rewen['comment'] = 0
-        url = toutiao.find_element_by_css_selector('div .title-box a').get_attribute('href')
-        rewen['url']=url
-        rewen['content'] = get_detail(url)
+        rewen['url'] = toutiao.find_element_by_css_selector('div .title-box a').get_attribute('href')
         yield rewen
 
 
@@ -102,10 +100,10 @@ def save_info(data):
 
 if __name__ == "__main__":
     results = get_info()
-    # delete_query()
+    delete_query()
     for result in results:
-        print(result)
-        # save_info(result)
+        # print(result)
+        save_info(result)
     print('已存储到数据库！')
     sleep(5)
     browser.close()

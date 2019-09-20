@@ -11,11 +11,11 @@ urlpatterns = [
     url(r'^news_delete/news_id=(\d+)$', news_delete),
     url(r'^news_edit/news_id=(\d+)$', news_edit),
     url(r'^news_category/category_id=(\d+)$', news_category),
-    url(r'^articles/$', article_list),
+    url(r'^articles_list/marker_id=(\w+)$', article_list),
     url(r'mdeditor/', include('mdeditor.urls')),
     url(r'zonghe/', index),
     url(r'^news_search/$', news_search),
     url(r'^review_add/news_id=(\d+)$', review_add),
-    url(r'^xadmin/', xadmin.site.urls),
+    url(r'^login/', xadmin.site.urls),
     url(r'^admin/', admin.site.urls),
 ]

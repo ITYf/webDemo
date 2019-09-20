@@ -56,7 +56,6 @@
                             <p style="font-size: 25px">没有搜索到符合条件的文章</p>
                         </div>
                     {% endfor %}
-
                 </div><!--news-list-->
 
                 <div class="list-group" style="margin-top: 20px" align="center">
@@ -136,9 +135,13 @@
                     <div class="card-body">
                         <div class="list">
                             <div class="item">
-                                <div class="title">中签率继续降低、“进京证”风光不再：京牌“租赁”生意火爆</div>
+                                <a href="{{ rw.url }}" style="color: #444444;">{{ rw.title }}</a>
                             </div>
-
+                            {% for rewen in rewen_list %}
+                                <div class="item">
+                                    <a href="{{ rewen.url }}" style="color: #444444;">{{ rewen.title }}</a>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

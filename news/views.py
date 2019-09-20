@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from django.template import RequestContext
 from news.models import Category, Users, News, Review
+from articles.models import rewen
 from news.forms import NewsAddModelForm, ReviewModelForm
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 import markdown
@@ -13,6 +14,16 @@ import markdown
 
 def index(request, pid=None, del_pass=None):
     template = get_template('index.html')
+    # 第一条热文放第一，一般是特大政治新闻
+    rw = rewen.objects.first()
+    rewen_list = rewen.objects.all().order_by('-comment')[1:7]
+
+    '''
+    导航栏实现
+    构造一个字典，循环遍历云计算、移动开发、系统、网络、数据科学
+    '''
+    cto_dic = {'云计算': 'id_15', '移动开发': 'id_583', '系统': 'id_519', '网络': 'id_481', '数据科学': 'id_1708'}
+
     # 接受警告框传过来的message
     messages.get_messages(request)
 

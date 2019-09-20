@@ -52,7 +52,7 @@ def parse_page(list):
         # 获取每一篇文章的详细信息item，类型为：dict
 
         for item in items:
-            articles['title'] = item.get('title').replace('?','').replace('/','')
+            articles['title'] = item.get('title').replace('?','').replace('/','').replace('|','')
             articles['keywords'] = pq(item.get('keywords')).text()
             articles['pub_time'] = item.get('stime')
             articles['img_url'] = item.get('picname')
@@ -82,7 +82,7 @@ def save_img(item, id):
 def delete_query():
     db = pymysql.connect(host='localhost', user='root', password='123456', port=3306, db='news')
     cursor = db.cursor()
-    table = 'articles_id_15'
+    table = 'articles_id_583'
     sql1 = 'SELECT * FROM {table}'.format(table=table)
     sql2 = 'TRUNCATE TABLE {table}'.format(table=table)
     cursor.execute(sql1)
@@ -110,17 +110,17 @@ def add_query(db, data, keys, values, table):
 
 def save_info(data):
     db = pymysql.connect(host='localhost', user='root', password='123456', port=3306, db='news')
-    table = 'articles_id_15'
+    table = 'articles_id_583'
     keys = ','.join(data.keys())
     values = ','.join(['%s'] * len(data))  # 构造一个 %s 的占位符序列，个数就是传入数据的长度
     add_query(db, data, keys, values, table)  # 调用 add_db 方法
 
 
 if __name__ == '__main__':
-    # delete_query()
+    delete_query()
     '''上次爬取完第27页'''
-    for page in range(18,50):
-        id = 15
+    for page in range(0,7):
+        id = 583
         list = get_html(id, page)
         results = parse_page(list)
         print('第%s页爬取完成' % page)
