@@ -24,7 +24,7 @@ idna==2.8
 jdcal==1.4.1
 kiwisolver==1.1.0
 Markdown==3.1.1
-markdown2==2.3.8
+markdown2==2.4.0
 matplotlib==3.0.3
 mysqlclient==1.4.2.post1
 numpy==1.16.3
